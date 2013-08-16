@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# modified by Juul
+
+TUN=$3
+ETH=eth0
+
+batctl if del $TUN
+
+#iptables -t nat -D POSTROUTING -s 10.0.0.0/8 -o $ETH -j MASQUERADE

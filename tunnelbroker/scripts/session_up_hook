@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# modified by Juul
+
+ETH=eth0
+TUN=$3
+
+ifconfig $TUN up
+batctl if add $TUN
+ifconfig bat0 10.42.0.10 netmask 255.0.0.0 up
+
+
+
+
+#REMOTEIP=172.31.1.1 # TODO cannot be hardcoded!
+#LOCALIP=172.31.0.1
+#MASK=255.255.0.0
+
+#ifconfig $TUN $LOCALIP netmask $MASK up
+#ip link set mtu 1500 dev $ETH
+#ip link set mtu 1400 dev $TUN
+#ip route add 10/8 dev $TUN via $REMOTEIP
+#iptables -t nat -A POSTROUTING -s 10.0.0.0/8 -o $ETH -j MASQUERADE
